@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #ffffff;
+    padding: 40px 30px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #e0e0e0;
+}
+
+.artist-name {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+
+.artist-name a {
+    text-decoration: none;
+    color: #000000;
+    transition: opacity 0.2s;
+}
+
+.artist-name a:hover {
+    opacity: 0.6;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    margin-bottom: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    transition: opacity 0.2s;
+    line-height: 1.4;
+}
+
+.nav-links a:hover {
+    opacity: 0.6;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 40px 60px;
+    width: calc(100% - 250px);
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.content h3 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.content a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.work-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 30px 0;
+}
+
+.work-image img {
+    width: 100%;
+    height: auto;
+}
+
+.image-caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+}
+
+.work-item {
+    display: block;
+}
+
+.work-item a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.work-item a:hover {
+    opacity: 0.6;
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.work-item h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0 0 5px 0;
+}
+
+.work-year {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
