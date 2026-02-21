@@ -9,7 +9,8 @@
 <body>
     <nav class="sidebar">
         <h1 class="artist-name"><a href="index.html">Zhuzhu Xie</a></h1>
-        <ul class="nav-links">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="the-room.html">The Room Continues to Breathe Without Us</a></li>
             <li><a href="detuning.html">(de)tuning</a></li>
             <li><a href="bio.html">Bio</a></li>
@@ -40,5 +41,10 @@
         2021-2023 BA in Design, major in civil system and graphic design, University of Melbourne, AUSTRALIA<br>
         2020-2021 BA in Civil Engineering, RMIT University, AUSTRALIA</p>
     </main>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

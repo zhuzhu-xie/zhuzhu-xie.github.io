@@ -9,7 +9,8 @@
 <body>
     <nav class="sidebar">
         <h1 class="artist-name"><a href="index.html">Zhuzhu Xie</a></h1>
-        <ul class="nav-links">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="the-room.html">The Room Continues to Breathe Without Us</a></li>
             <li><a href="detuning.html">(de)tuning</a></li>
             <li><a href="bio.html">Bio</a></li>
@@ -45,5 +46,10 @@
             <img src="material/(de)tuning/Images/IMG_9553.jpg" alt="(de)tuning">
         </div>
     </main>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
