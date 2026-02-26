@@ -1,0 +1,5 @@
+I Gaze into a Bright Light
+2025 
+resin clay, aluminium wire, tft-lcd, silicon chip
+
+This Python-generated video work explores the relationship between individual elements and the whole in both physical and digital forms, serving as a metaphor for the interference and interconnection of matter. Inspired by the experience of looking at a light source and observing diffraction-a phenomenon often captured by cameras but only visible to the human eye when squinting-the composition and graphics are generated using diffraction functions.s
