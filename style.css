@@ -5,6 +5,13 @@
 }
 
 @font-face {
+    font-family: 'WorseEvo';
+    src: url('material/Fonts/WORSE_EVO v1.0 By SYIN.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Quinn';
     src: url('material/Fonts/Quinn.ttf') format('truetype');
     font-weight: normal;
@@ -48,7 +55,7 @@ body {
     font-size: 50px;
     font-weight: normal;
     margin-bottom: 40px;
-    font-family: 'Quinn', Arial, sans-serif;
+    font-family: 'WorseEvo', Arial, sans-serif;
 }
 
 .artist-name a {
