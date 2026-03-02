@@ -5,6 +5,13 @@
 }
 
 @font-face {
+    font-family: 'HIDESerif';
+    src: url('material/Fonts/HIDESerif_v0.9.4.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'WorseEvo';
     src: url('material/Fonts/WORSE_EVO v1.0 By SYIN.otf') format('opentype');
     font-weight: normal;
@@ -35,27 +42,38 @@
 body {
     font-family: 'LTSoul', Arial, sans-serif;
     display: flex;
+    flex-direction: column;
     height: 100vh;
     overflow: hidden;
 }
 
 .sidebar {
-    width: 250px;
+    width: 100%;
+    height: auto;
     background-color: #ffffff;
-    padding: 40px 30px;
+    padding: 20px 40px;
     position: fixed;
     left: 0;
     top: 0;
-    height: 100vh;
-    overflow-y: auto;
-    border-right: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 1000;
 }
 
 .artist-name {
     font-size: 50px;
     font-weight: normal;
-    margin-bottom: 40px;
-    font-family: 'WorseEvo', Arial, sans-serif;
+    margin-bottom: 0;
+    font-family: 'HIDESerif', Arial, sans-serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
 }
 
 .artist-name a {
@@ -73,7 +91,7 @@ body {
 }
 
 .nav-links li {
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 
 .nav-links a {
@@ -90,11 +108,126 @@ body {
     opacity: 0.6;
 }
 
+/* Works page layout */
+.works-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.works-layout {
+    display: flex;
+    margin-top: 90px;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+}
+
+.works-sidebar {
+    width: 300px;
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.works-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.works-list li {
+    margin-bottom: 20px;
+}
+
+.works-list a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 15px;
+    font-family: 'LTSoul', Arial, sans-serif;
+    font-weight: 600;
+    transition: opacity 0.2s;
+    line-height: 1.4;
+}
+
+.works-list a:hover {
+    opacity: 0.6;
+}
+
+.works-content {
+    flex: 1;
+    padding: 0;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.works-content .works-grid {
+    column-count: 2;
+    column-gap: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.works-content .work-item {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.works-content .work-item a {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    position: relative;
+}
+
+.works-content .work-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s;
+    vertical-align: bottom;
+}
+
+.works-content .work-item a:hover img {
+    opacity: 0.3;
+}
+
+.works-content .work-item h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'LTSoul', Arial, sans-serif;
+}
+
+.works-content .work-item a:hover h3 {
+    opacity: 1;
+}
+
+.works-content .work-year {
+    display: none;
+}
+
 .content {
-    margin-left: 250px;
+    margin-left: 0;
+    margin-top: 90px;
     padding: 40px 60px;
-    width: calc(100% - 250px);
-    height: 100vh;
+    width: 100%;
+    height: calc(100vh - 90px);
     overflow-y: auto;
 }
 
@@ -125,7 +258,7 @@ body {
 
 .work-image {
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
     margin: 30px 0;
 }
 
@@ -144,7 +277,7 @@ body {
 .works-grid {
     column-count: 2;
     column-gap: 0;
-    max-width: 1200px;
+    max-width: 100%;
 }
 
 .work-item {
@@ -172,7 +305,7 @@ body {
 }
 
 .work-item a:hover img {
-    opacity: 0.7;
+    opacity: 0.3;
 }
 
 .work-item h3 {
@@ -184,7 +317,7 @@ body {
     font-weight: 600;
     margin: 0;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.5);
     opacity: 0;
     transition: opacity 0.3s;
     text-align: center;
@@ -232,6 +365,101 @@ body {
     z-index: 1001;
     color: #000000;
     line-height: 1;
+}
+
+/* Index page specific styles */
+.content.index-content {
+    padding: 0;
+    margin-top: 90px;
+    height: calc(100vh - 90px);
+    overflow: hidden;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s;
+}
+
+.slide a:hover img {
+    opacity: 0.3;
+}
+
+.slide h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'LTSoul', Arial, sans-serif;
+}
+
+.slide a:hover h3 {
+    opacity: 1;
+}
+
+.slide-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 48px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10;
+    color: #000000;
+    font-family: 'LTSoul', Arial, sans-serif;
+}
+
+.slide-nav:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.slide-nav.prev {
+    left: 20px;
+}
+
+.slide-nav.next {
+    right: 20px;
 }
 
 /* Mobile styles */
