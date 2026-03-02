@@ -6,17 +6,30 @@
     <title>I Gaze into a Bright Light - Zhuzhu Xie</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="works-page">
     <nav class="sidebar">
         <h1 class="artist-name"><a href="index.html">Zhuzhu Xie</a></h1>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="works.html">Works</a></li>
+            <li><a href="the-room.html">Works</a></li>
             <li><a href="bio.html">Bio</a></li>
         </ul>
     </nav>
     
-    <main class="content">
+    <div class="works-layout">
+        <aside class="works-sidebar">
+            <ul class="works-list">
+                <li><a href="the-room.html">The Room Continues to Breathe Without Us</a></li>
+                <li><a href="detuning.html">(de)tuning</a></li>
+                <li><a href="six-leg-solution.html">Six-Leg Solution</a></li>
+                <li><a href="everlasting-flux.html">Everlasting Flux</a></li>
+                <li><a href="bright-light.html">I Gaze into a Bright Light</a></li>
+                <li><a href="insectum.html">Insectum</a></li>
+                <li><a href="coral.html">Coral</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content work-detail">
         <h2>I Gaze into a Bright Light</h2>
         <p><em>2025</em></p>
         <p><em>Resin clay, aluminium wire, tft-lcd, silicon chip</em></p>
@@ -46,7 +59,8 @@
         <div class="work-image">
             <img src="material/I Gaze into a Bright Light/IMG_9500 2.jpg" alt="I Gaze into a Bright Light">
         </div>
-    </main>
+        </main>
+    </div>
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
