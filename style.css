@@ -108,6 +108,11 @@ body {
     opacity: 0.6;
 }
 
+/* Hide works list in nav on desktop */
+.nav-links .works-list {
+    display: none;
+}
+
 /* Works page layout */
 .works-page {
     display: flex;
@@ -537,13 +542,57 @@ body {
     }
     
     .nav-links.active {
-        max-height: 300px;
+        max-height: 500px;
         padding-top: 20px;
         padding-bottom: 20px;
+        overflow-y: auto;
     }
     
     .nav-links li {
         margin-bottom: 20px;
+    }
+    
+    /* Show works list in hamburger menu on mobile for works pages */
+    .works-page .nav-links .works-list {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    .works-page .nav-links .works-list li {
+        margin-bottom: 15px;
+    }
+    
+    .works-page .nav-links .works-list a {
+        font-size: 16px;
+    }
+    
+    /* Hide works sidebar on mobile */
+    .works-sidebar {
+        display: none;
+    }
+    
+    /* Show works list in hamburger menu on mobile */
+    .works-page .nav-links {
+        max-height: 0;
+    }
+    
+    .works-page .nav-links.active {
+        max-height: 600px;
+    }
+    
+    /* Adjust works layout for mobile */
+    .works-layout {
+        margin-top: 80px;
+        height: auto;
+    }
+    
+    .content.work-detail {
+        padding: 20px;
     }
     
     .content {
