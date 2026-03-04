@@ -58,7 +58,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #089f00;
     z-index: 1000;
 }
 
@@ -76,20 +76,6 @@ body {
     margin: 0;
 }
 
-.artist-name a {
-    text-decoration: none;
-    color: #000000;
-    transition: opacity 0.2s;
-}
-
-.artist-name a:hover {
-    opacity: 0.6;
-}
-
-.nav-links {
-    list-style: none;
-}
-
 .nav-links li {
     margin-bottom: 0;
 }
@@ -102,6 +88,16 @@ body {
     line-height: 1.4;
     font-family: 'LTSoul', Arial, sans-serif;
     font-weight: 600;
+}
+
+.artist-name a {
+    text-decoration: none;
+    color: #000000;
+    transition: opacity 0.2s;
+}
+
+.artist-name a:hover {
+    opacity: 0.6;
 }
 
 .nav-links a:hover {
@@ -130,7 +126,7 @@ body {
     width: 300px;
     background-color: #ffffff;
     padding: 40px 30px;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid #089f00;
     overflow-y: auto;
     flex-shrink: 0;
 }
@@ -504,29 +500,31 @@ body {
         left: 0;
         padding: 20px;
         border-right: none;
-        border-bottom: 1px solid #e0e0e0;
+        border-bottom: 1px solid #089f00;
         z-index: 1001;
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
+        background-color: #ffffff;
     }
     
     .artist-name {
         margin-bottom: 0;
-        font-size: 20px;
+        font-size: 28px;
     }
     
     .menu-toggle {
         position: static;
         transform: none;
         display: flex;
-        align-items: flex-start;
-        margin-top: -4px;
+        align-items: center;
+        margin-top: 0;
+        font-size: 28px;
     }
     
     .nav-links {
         position: fixed;
-        top: 64px;
+        top: 65px;
         left: 0;
         width: 100%;
         background-color: #ffffff;
@@ -539,50 +537,68 @@ body {
         overflow: hidden;
         padding-top: 0;
         padding-bottom: 0;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 40px;
+        grid-template-rows: auto auto;
     }
     
     .nav-links.active {
-        max-height: 500px;
+        max-height: 600px;
         padding-top: 20px;
         padding-bottom: 20px;
         overflow-y: auto;
+        border-bottom: 1px solid #089f00;
     }
     
     .nav-links li {
         margin-bottom: 20px;
     }
     
-    /* Show works list in hamburger menu on mobile for works pages */
-    .works-page .nav-links .works-list {
+    .nav-links li:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 0;
+        align-self: start;
+    }
+    
+    .nav-links li:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: end;
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    /* Show works list in mobile menu */
+    .nav-links .works-list {
         display: block;
         list-style: none;
         margin: 0;
         padding: 0;
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid #e0e0e0;
+        grid-column: 2;
+        grid-row: 1 / 3;
     }
     
-    .works-page .nav-links .works-list li {
+    .nav-links .works-list li {
         margin-bottom: 15px;
+        border-bottom: none;
+        padding-bottom: 0;
     }
     
-    .works-page .nav-links .works-list a {
+    .nav-links .works-list li:last-child {
+        margin-bottom: 20px;
+    }
+    
+    .nav-links .works-list a {
         font-size: 16px;
     }
     
     /* Hide works sidebar on mobile */
     .works-sidebar {
         display: none;
-    }
-    
-    /* Show works list in hamburger menu on mobile */
-    .works-page .nav-links {
-        max-height: 0;
-    }
-    
-    .works-page .nav-links.active {
-        max-height: 600px;
     }
     
     /* Adjust works layout for mobile */
