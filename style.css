@@ -246,7 +246,23 @@ body {
     overflow-y: auto;
 }
 
+.content.bio-content {
+    margin-left: 0;
+    margin-top: 80px;
+    padding: 40px 60px;
+    width: 100%;
+    height: calc(100vh - 90px);
+    overflow-y: auto;
+}
+
 .content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: 'LTSoul', Arial, sans-serif;
+}
+
+.content.bio-content h2 {
     font-size: 28px;
     margin-bottom: 20px;
     font-weight: 600;
@@ -261,7 +277,20 @@ body {
     font-family: 'LTSoul', Arial, sans-serif;
 }
 
+.content.bio-content h3 {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-family: 'LTSoul', Arial, sans-serif;
+}
+
 .content p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.content.bio-content p {
     line-height: 1.6;
     margin-bottom: 20px;
 }
@@ -518,7 +547,7 @@ body {
         transform: none;
         display: flex;
         align-items: center;
-        margin-top: 0;
+        margin-top: -15px;
         font-size: 28px;
     }
     
@@ -537,39 +566,27 @@ body {
         overflow: hidden;
         padding-top: 0;
         padding-bottom: 0;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        column-gap: 40px;
-        grid-template-rows: auto auto;
+        display: block;
     }
     
     .nav-links.active {
         max-height: 600px;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         overflow-y: auto;
         border-bottom: 1px solid #089f00;
     }
     
     .nav-links li {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     .nav-links li:first-child {
-        grid-column: 1;
-        grid-row: 1;
-        margin-bottom: 0;
-        align-self: start;
+        margin-bottom: 15px;
     }
     
     .nav-links li:nth-child(2) {
-        grid-column: 1;
-        grid-row: 2;
-        align-self: end;
-        margin-top: auto;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        border-bottom: none;
+        margin-bottom: 15px;
     }
     
     /* Show works list in mobile menu */
@@ -578,8 +595,6 @@ body {
         list-style: none;
         margin: 0;
         padding: 0;
-        grid-column: 2;
-        grid-row: 1 / 3;
     }
     
     .nav-links .works-list li {
@@ -589,7 +604,7 @@ body {
     }
     
     .nav-links .works-list li:last-child {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     
     .nav-links .works-list a {
@@ -620,12 +635,25 @@ body {
         overflow-y: visible;
     }
     
+    .content.bio-content {
+        margin-left: 0;
+        margin-top: 80px;
+        width: 100%;
+        padding: 20px;
+        height: auto;
+        overflow-y: visible;
+    }
+    
     .works-grid {
         column-count: 1;
         column-gap: 0;
     }
     
     .content h2 {
+        font-size: 24px;
+    }
+    
+    .content.bio-content h2 {
         font-size: 24px;
     }
 }
