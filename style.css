@@ -51,7 +51,7 @@ body {
     width: 100%;
     height: auto;
     background-color: #ffffff;
-    padding: 20px 40px;
+    padding: 20px 30px;
     position: fixed;
     left: 0;
     top: 0;
@@ -63,7 +63,7 @@ body {
 }
 
 .artist-name {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: normal;
     margin-bottom: 0;
     font-family: 'HIDESerif', Arial, sans-serif;
@@ -117,8 +117,8 @@ body {
 
 .works-layout {
     display: flex;
-    margin-top: 90px;
-    height: calc(100vh - 90px);
+    margin-top: 80px;
+    height: calc(100vh);
     overflow: hidden;
 }
 
@@ -613,7 +613,7 @@ body {
     
     .content {
         margin-left: 0;
-        margin-top: 80px;
+        margin-top: 0px;
         width: 100%;
         padding: 20px;
         height: auto;
