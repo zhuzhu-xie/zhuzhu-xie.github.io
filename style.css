@@ -657,4 +657,17 @@ body {
     .content.bio-content h2 {
         font-size: 24px;
     }
+    
+    /* Disable hover text effects on mobile */
+    .works-content .work-item a:hover h3 {
+        opacity: 0;
+    }
+    
+    .work-item a:hover h3 {
+        opacity: 0;
+    }
+    
+    .slide a:hover h3 {
+        opacity: 0;
+    }
 }
