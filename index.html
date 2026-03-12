@@ -27,93 +27,130 @@
     
     <main class="content index-content">
         <div class="slideshow-container">
-            <div class="slide active">
+            <div class="slide">
                 <a href="the-room.html">
                     <img src="material/The Room Continues to Breathe Without Us/TheRoom_homepage_desktop.jpg" alt="The Room Continues to Breathe Without Us">
-                    <h3>The Room Continues to Breathe Without Us</h3>
+                    <div class="slide-text">
+                        <h2>The Room Continues to Breathe Without Us</h2>
+                        <p>2025</p>
+                    </div>
                 </a>
             </div>
             
             <div class="slide">
                 <a href="detuning.html">
                     <img src="material/(de)tuning/Images/(de)tuning_homepage_desktop.png" alt="(de)tuning">
-                    <h3>(de)tuning</h3>
+                    <div class="slide-text">
+                        <h2>(de)tuning</h2>
+                        <p>2025</p>
+                    </div>
                 </a>
             </div>
             
             <div class="slide">
                 <a href="six-leg-solution.html">
                     <img src="material/Six Leg Solution/SixLegSolution_homepage_desktop.jpg" alt="Six-Leg Solution">
-                    <h3>Six-Leg Solution</h3>
+                    <div class="slide-text">
+                        <h2>Six-Leg Solution</h2>
+                        <p>2023</p>
+                    </div>
                 </a>
             </div>
             
             <div class="slide">
                 <a href="everlasting-flux.html">
                     <img src="material/Everlasting Flux/everlastingflux_homepage_desktop.png" alt="Everlasting Flux">
-                    <h3>Everlasting Flux</h3>
+                    <div class="slide-text">
+                        <h2>Everlasting Flux</h2>
+                        <p>2023-2025</p>
+                    </div>
                 </a>
             </div>
             
             <div class="slide">
                 <a href="bright-light.html">
                     <img src="material/I Gaze into a Bright Light/IGazeIntoABrightLight_homepage_desktop.png" alt="I Gaze into a Bright Light">
-                    <h3>I Gaze into a Bright Light</h3>
+                    <div class="slide-text">
+                        <h2>I Gaze into a Bright Light</h2>
+                        <p>2025</p>
+                    </div>
                 </a>
             </div>
             
             <div class="slide">
                 <a href="insectum.html">
                     <img src="material/Insectum/Insectum_homepage_desktop.JPG" alt="Insectum">
-                    <h3>Insectum</h3>
+                    <div class="slide-text">
+                        <h2>Insectum</h2>
+                        <p>2025</p>
+                    </div>
                 </a>
             </div>
             
             <div class="slide">
                 <a href="coral.html">
                     <img src="material/Coral/coral_homepage_desktop.png" alt="Coral">
-                    <h3>Coral</h3>
+                    <div class="slide-text">
+                        <h2>Coral</h2>
+                        <p>2025</p>
+                    </div>
                 </a>
             </div>
-            
-            <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
-            <button class="slide-nav next" onclick="changeSlide(1)">›</button>
         </div>
     </main>
     <script>
-        let currentSlide = 0;
-        let autoSlideInterval;
-        
-        function showSlide(n) {
-            const slides = document.querySelectorAll('.slide');
-            if (n >= slides.length) currentSlide = 0;
-            if (n < 0) currentSlide = slides.length - 1;
-            
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[currentSlide].classList.add('active');
-        }
-        
-        function changeSlide(direction) {
-            currentSlide += direction;
-            showSlide(currentSlide);
-            resetAutoSlide();
-        }
-        
-        function autoSlide() {
-            currentSlide++;
-            showSlide(currentSlide);
-        }
-        
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(autoSlide, 4000);
-        }
-        
-        // Start auto-slide
-        autoSlideInterval = setInterval(autoSlide, 4000);
-        
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
+        }
+        
+        // Morphing scroll animation
+        const slides = document.querySelectorAll('.slide');
+        const indexContent = document.querySelector('.index-content');
+        
+        if (indexContent) {
+            indexContent.addEventListener('scroll', () => {
+                const scrollTop = indexContent.scrollTop;
+                const windowHeight = window.innerHeight;
+                
+                slides.forEach((slide, index) => {
+                    const slideTop = slide.offsetTop;
+                    const slideHeight = slide.offsetHeight;
+                    const slideBottom = slideTop + slideHeight;
+                    
+                    // Calculate how much of the slide is visible
+                    const visibleTop = Math.max(scrollTop, slideTop);
+                    const visibleBottom = Math.min(scrollTop + windowHeight, slideBottom);
+                    const visibleHeight = visibleBottom - visibleTop;
+                    const visibleRatio = visibleHeight / windowHeight;
+                    
+                    // Calculate scroll progress within the slide
+                    const scrollProgress = (scrollTop - slideTop) / slideHeight;
+                    
+                    const img = slide.querySelector('img');
+                    
+                    if (scrollProgress > -0.5 && scrollProgress < 1.5) {
+                        // Scale and translate based on scroll position
+                        let scale = 1;
+                        let translateY = 0;
+                        
+                        if (scrollProgress < 0) {
+                            // Slide is coming into view from bottom
+                            scale = 1 + Math.abs(scrollProgress) * 0.2;
+                            translateY = scrollProgress * 50;
+                        } else if (scrollProgress > 0 && scrollProgress < 1) {
+                            // Slide is in view and scrolling
+                            scale = 1 + scrollProgress * 0.1;
+                            translateY = scrollProgress * -30;
+                        } else if (scrollProgress >= 1) {
+                            // Slide is leaving view from top
+                            scale = 1.1 + (scrollProgress - 1) * 0.2;
+                            translateY = (scrollProgress - 1) * -50;
+                        }
+                        
+                        img.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                    }
+                });
+            });
         }
     </script>
 </body>
