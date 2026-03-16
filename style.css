@@ -555,10 +555,12 @@ body {
 
     .slide-text {
         left: 20px;
+        bottom: 20px;
     }
 
     .slide-arrow {
         right: 20px;
+        bottom: 20px;
     }
     
     .menu-toggle {
@@ -583,6 +585,8 @@ body {
     
     .artist-name {
         margin-bottom: 0;
+        margin-left: 0;
+        padding-left: 0;
         font-size: 28px;
     }
     
