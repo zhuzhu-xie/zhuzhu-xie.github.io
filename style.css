@@ -552,6 +552,14 @@ body {
     .slide {
         height: 100dvh;
     }
+
+    .slide-text {
+        left: 20px;
+    }
+
+    .slide-arrow {
+        right: 20px;
+    }
     
     .menu-toggle {
         display: block;
