@@ -544,6 +544,14 @@ body {
         flex-direction: column;
         overflow: auto;
     }
+
+    .content.index-content {
+        height: 100dvh;
+    }
+
+    .slide {
+        height: 100dvh;
+    }
     
     .menu-toggle {
         display: block;
@@ -637,6 +645,9 @@ body {
     
     .nav-links .works-list a {
         font-size: 16px;
+        color: #ffffff;
+        text-shadow: 0 2px 10px rgba(8, 159, 0, 0.8), 0 0 2px rgba(0, 0, 0, 0.9);
+        -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
     }
     
     /* Hide works sidebar on mobile */
@@ -735,6 +746,20 @@ body.works-page .nav-links a {
     -webkit-text-stroke: 0;
 }
 
+body.works-page .menu-toggle {
+    color: #000000;
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+}
+
+body.works-page .nav-links {
+    background-color: #ffffff;
+}
+
+body.works-page .nav-links.active {
+    border-bottom: 1px solid #089f00;
+}
+
 
 /* Add green border back to works page navigation */
 body.works-page .sidebar {
@@ -744,31 +769,42 @@ body.works-page .sidebar {
 
 /* Mobile homepage - use phone-specific images */
 @media (max-width: 768px) {
-    .slide:nth-child(1) img {
-        content: url('material/The Room Continues to Breathe Without Us/TheRoom_homepage_phone.jpg');
+    /* Hide img tags on mobile, use background-image instead for reliable full-screen coverage */
+    .slide img {
+        display: none;
+    }
+
+    .slide a {
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .slide:nth-child(1) a {
+        background-image: url('material/The Room Continues to Breathe Without Us/TheRoom_homepage_phone.jpg');
     }
     
-    .slide:nth-child(2) img {
-        content: url('material/(de)tuning/(de)tuning_homepage_phone.jpg');
+    .slide:nth-child(2) a {
+        background-image: url('material/(de)tuning/(de)tuning_homepage_phone.jpg');
     }
     
-    .slide:nth-child(3) img {
-        content: url('material/Six Leg Solution/SixLegSolution_homepage_phone.png');
+    .slide:nth-child(3) a {
+        background-image: url('material/Six Leg Solution/SixLegSolution_homepage_phone.png');
     }
     
-    .slide:nth-child(4) img {
-        content: url('material/Everlasting Flux/everlastingflux_homepage_phone.png');
+    .slide:nth-child(4) a {
+        background-image: url('material/Everlasting Flux/everlastingflux_homepage_phone.png');
     }
     
-    .slide:nth-child(5) img {
-        content: url('material/I Gaze into a Bright Light/Igaze_homepage_phone.png');
+    .slide:nth-child(5) a {
+        background-image: url('material/I Gaze into a Bright Light/Igaze_homepage_phone.png');
     }
     
-    .slide:nth-child(6) img {
-        content: url('material/Insectum/Insectum_homepage_phone.png');
+    .slide:nth-child(6) a {
+        background-image: url('material/Insectum/Insectum_homepage_phone.png');
     }
     
-    .slide:nth-child(7) img {
-        content: url('material/Coral/coral_homepage_phone.png');
+    .slide:nth-child(7) a {
+        background-image: url('material/Coral/coral_homepage_phone.png');
     }
 }

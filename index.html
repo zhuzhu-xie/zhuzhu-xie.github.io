@@ -109,11 +109,8 @@
             document.getElementById('navLinks').classList.toggle('active');
         }
         
-        // Morphing scroll animation
-        const slides = document.querySelectorAll('.slide');
         const indexContent = document.querySelector('.index-content');
         
-        // Auto-scroll logic
         let userHasScrolled = false;
         let autoScrollTimer = null;
 
@@ -134,47 +131,10 @@
 
         if (indexContent) {
             startAutoScrollTimer();
-
             indexContent.addEventListener('scroll', () => {
                 userHasScrolled = true;
                 clearTimeout(autoScrollTimer);
-
-                const scrollTop = indexContent.scrollTop;
-                const windowHeight = window.innerHeight;
-                
-                slides.forEach((slide, index) => {
-                    const slideTop = slide.offsetTop;
-                    const slideHeight = slide.offsetHeight;
-                    const slideBottom = slideTop + slideHeight;
-                    
-                    const visibleTop = Math.max(scrollTop, slideTop);
-                    const visibleBottom = Math.min(scrollTop + windowHeight, slideBottom);
-                    const visibleHeight = visibleBottom - visibleTop;
-                    const visibleRatio = visibleHeight / windowHeight;
-                    
-                    const scrollProgress = (scrollTop - slideTop) / slideHeight;
-                    
-                    const img = slide.querySelector('img');
-                    
-                    if (scrollProgress > -0.5 && scrollProgress < 1.5) {
-                        let scale = 1;
-                        let translateY = 0;
-                        
-                        if (scrollProgress < 0) {
-                            scale = 1 + Math.abs(scrollProgress) * 0.2;
-                            translateY = scrollProgress * 50;
-                        } else if (scrollProgress > 0 && scrollProgress < 1) {
-                            scale = 1 + scrollProgress * 0.1;
-                            translateY = scrollProgress * -30;
-                        } else if (scrollProgress >= 1) {
-                            scale = 1.1 + (scrollProgress - 1) * 0.2;
-                            translateY = (scrollProgress - 1) * -50;
-                        }
-                        
-                        img.style.transform = `scale(${scale}) translateY(${translateY}px)`;
-                    }
-                });
-            });
+            }, { passive: true });
         }
     </script>
 </body>
