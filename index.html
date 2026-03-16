@@ -134,6 +134,38 @@
             indexContent.addEventListener('scroll', () => {
                 userHasScrolled = true;
                 clearTimeout(autoScrollTimer);
+
+                // Only apply morph effect on desktop
+                if (window.innerWidth <= 768) return;
+
+                const scrollTop = indexContent.scrollTop;
+                const windowHeight = window.innerHeight;
+
+                document.querySelectorAll('.slide').forEach((slide) => {
+                    const slideTop = slide.offsetTop;
+                    const slideHeight = slide.offsetHeight;
+                    const scrollProgress = (scrollTop - slideTop) / slideHeight;
+                    const img = slide.querySelector('img');
+                    if (!img) return;
+
+                    if (scrollProgress > -0.5 && scrollProgress < 1.5) {
+                        let scale = 1;
+                        let translateY = 0;
+
+                        if (scrollProgress < 0) {
+                            scale = 1 + Math.abs(scrollProgress) * 0.2;
+                            translateY = scrollProgress * 50;
+                        } else if (scrollProgress > 0 && scrollProgress < 1) {
+                            scale = 1 + scrollProgress * 0.1;
+                            translateY = scrollProgress * -30;
+                        } else if (scrollProgress >= 1) {
+                            scale = 1.1 + (scrollProgress - 1) * 0.2;
+                            translateY = (scrollProgress - 1) * -50;
+                        }
+
+                        img.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                    }
+                });
             }, { passive: true });
         }
     </script>
