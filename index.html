@@ -153,14 +153,14 @@
                         let translateY = 0;
 
                         if (scrollProgress < 0) {
-                            scale = 1 + Math.abs(scrollProgress) * 0.2;
-                            translateY = scrollProgress * 50;
+                            scale = 1 + Math.abs(scrollProgress) * 0.15;
+                            translateY = scrollProgress * 30;
                         } else if (scrollProgress > 0 && scrollProgress < 1) {
-                            scale = 1 + scrollProgress * 0.1;
-                            translateY = scrollProgress * -30;
+                            scale = 1 + scrollProgress * 0.12;
+                            translateY = scrollProgress * -25;
                         } else if (scrollProgress >= 1) {
-                            scale = 1.1 + (scrollProgress - 1) * 0.2;
-                            translateY = (scrollProgress - 1) * -50;
+                            scale = 1.12 + (scrollProgress - 1) * 0.15;
+                            translateY = (scrollProgress - 1) * -30;
                         }
 
                         img.style.transform = `scale(${scale}) translateY(${translateY}px)`;
